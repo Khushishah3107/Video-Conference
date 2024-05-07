@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VideoSDK.Live</title>
+    <link rel="shortcut icon" href="https://videosdk.live/favicon/favicon.ico">
+    <link rel="stylesheet" href="index.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa;
+            overflow: hidden; /* Hide scrollbar */
+        }
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 20px;
+        }
+        .logo {
+            text-align: center;
+            margin-bottom: 10px; /* Reduced margin-bottom */
+        }
+        .join-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: calc(100vh - 250px); 
+        }
+        .join-left {
+            flex: 1;
+            position: relative;
+            margin-right: 20px;
+        }
+        .join-left video {
+            width: 100%;
+            height: 100%;
+            border-radius: 10px;
+            object-fit: cover;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+        }
+        .join-right {
+            flex: 1;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+        }
+        .join-right input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ced4da;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            box-sizing: border-box; /* Ensure padding is included in the width */
+        }
+        .join-right button {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #007bff;
+            color: #fff;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        .join-right button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">
+            <img src="video-call-7-128.png" alt="Your Logo">
+            <h1 style="text-align: center;">Video Conference</h1>
+        </div>
+        <div class="join-container">
+            <div class="join-left">
+                <video src="" id="joincam"></video>
+                <div class="controls" style="display: none;">
+                    <button>Mic</button>
+                    <button>WebCam</button>
+                </div>
+            </div>
+            <div class="join-right">
+                <div>
+                    <h3>Name</h3>
+                    <input type="text" name="name" style="background: white; color: black; font-size: larger;" id="joinMeetingName" required>
+                </div>
+                <div>
+                    <h3>Meeting ID</h3>
+                    <input type="text" name="name" style="background: white; color: black; font-size: larger;" id="joinMeetingID" required>
+                </div>
+                <div>
+                    <button class="btn" id="meetingJoinButton" onclick="joinMeeting()">JOIN MEETING</button>
+                </div>
+                <div>
+                    <button class="btn" id="meetingCreateButton" onclick="createMeeting()">CREATE MEETING</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://sdk.videosdk.live/js-sdk/0.0.86/videosdk.js"></script>
+</body>
+</html>
